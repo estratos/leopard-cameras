@@ -1,0 +1,35 @@
+This instructions apply to L4T 28.2.1
+
+
+Compile the driver
+If you would like to re-compile the driver, please follow below steps.
+Download the driver code and Tool chain from links below.
+
+
+Compile the kernel under 64 bit Ubuntu OS on Intel x64 PC. (Virtual machine is fine. We are using Ubuntu
+16.04 64 bit OS)
+
+1) Copy compile tool gcc-4.8.5-aarch64.tgz to /opt, and unzip it
+ sudo tar zxvf gcc-4.8.5-aarch64.tgz
+
+
+2) Copy kernel_src.tbz2 and two patch files to /usr/src
+ sudo tar xpf kernel_src-TX2.tbz2
+ sudo chown -R <user_name> kernel
+ sudo chown -R <user_name> hardware
+ patch -p0 < tri_streaming_raa462113_base28.2.1_TX2_NV_dts_20190330 .patch
+ patch -p0 < tri_streaming_raa462113_base28.2.1_TX2_NV_kernel_20190330 .patch
+Note: <user_name> is the user name of your Ubuntu OS. For example: sudo chown -R leopard kernel
+3) Copy tx2.sh to /usr/src/kernel.
+ under /usr/src/kernel,do
+ source tx2.sh
+4) Create a work folder under /home:
+ sudo mkdir /home/work
+ sudo chown -R <user_name> /home/work
+
+5) In "kernel/kernel-4.4" folder, run:
+ make O=$TEGRA_KERNEL_OUT tegra18_defconfig
+ make O=$TEGRA_KERNEL_OUT zImage
+ make O=$TEGRA_KERNEL_OUT dtbs
+You will get Image and zImage under /home/work/TX2/kernel/kernel_out/arch/arm64/boot and tegra186-
+quill-p3310-1000-c03-00-base.dtb under /home/work/TX2/kernel/kernel_out/arch/arm64/boot/dts.
