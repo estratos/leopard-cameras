@@ -1,0 +1,42 @@
+
+
+
+Afected files
+
+Device Tree
+
+++ hardware_new/nvidia/platform/t18x/common/kernel-dts/t18x-common-modules/tegra186-camera-raa462113-a00.dtsi
+
++++ hardware_new/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-camera-modules.dtsi
+
++++ hardware_new/nvidia/platform/t18x/common/kernel-dts/t18x-common-platforms/tegra186-quill-camera-raa462113-a00.dtsi
+
++++ hardware_new/nvidia/platform/t18x/quill/kernel-dts/tegra186-quill-p3310-1000-a00-00-base.dts
+
+
+
+KERNEL
+
+
++++ kernel_new/kernel-4.4/arch/arm64/configs/tegra18_defconfig
+
+
++++ kernel_new/kernel-4.4/drivers/gpio/gpiolib.c
+
+++ kernel_new/kernel-4.4/drivers/media/i2c/Kconfig
+
++++ kernel_new/kernel-4.4/drivers/media/i2c/Makefile
+
+
++++ kernel_new/kernel-4.4/drivers/media/i2c/pca9570.c
+
++++ kernel_new/kernel-4.4/drivers/media/i2c/raa462113.c
+
++++ kernel_new/kernel-4.4/drivers/media/i2c/raa462113_mode_tbls.h    
++++ kernel_new/kernel-4.4/drivers/media/platform/tegra/camera/vi/channel.c
+
++++ kernel_new/kernel-4.4/drivers/media/v4l2-core/videobuf2-core.c
++++ kernel_new/kernel-4.4/drivers/thermal/pwm_fan.c
+
+
+
