@@ -1212,9 +1212,11 @@ static int raa462113_probe(struct i2c_client *client,
 				V4L2_SUBDEV_FL_HAS_EVENTS;
 
 #if defined(CONFIG_MEDIA_CONTROLLER)
+	/* code changed to comply code changes from kernel 4.4 to 4.9 */
 	priv->pad.flags = MEDIA_PAD_FL_SOURCE;
 	priv->subdev->entity.ops = &raa462113_media_ops;
 	err = tegra_media_entity_init(&priv->subdev->entity, 1, &priv->pad, true, true);
+	
 	if (err < 0) {
 		dev_err(&client->dev, "unable to init media entity\n");
 		return err;
@@ -1276,7 +1278,7 @@ static struct i2c_driver raa462113_i2c_driver = {
 };
 
 module_i2c_driver(raa462113_i2c_driver);
-
-MODULE_DESCRIPTION("Media Controller driver for Sony RAA462113");
+/* changed description from Sony to Renesas  */
+MODULE_DESCRIPTION("Media Controller driver for Renesas RAA462113");
 MODULE_AUTHOR("NVIDIA Corporation");
 MODULE_LICENSE("GPL v2");
