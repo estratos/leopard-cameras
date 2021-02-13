@@ -1661,7 +1661,7 @@ static void __vb2_queue_cancel(struct vb2_queue *q)
 	 * videobuf2-core.h for more information how buffers should be returned
 	 * to vb2 in stop_streaming().
 	 */
-	if (WARN_ON(atomic_read(&q->owned_by_drv_count))) {
+	if (atomic_read(&q->owned_by_drv_count)) {
 		for (i = 0; i < q->num_buffers; ++i)
 			if (q->bufs[i]->state == VB2_BUF_STATE_ACTIVE)
 				vb2_buffer_done(q->bufs[i], VB2_BUF_STATE_ERROR);
