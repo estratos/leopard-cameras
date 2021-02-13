@@ -1480,6 +1480,38 @@ static int tegra_channel_sensorprops_setup(struct tegra_channel *chan)
 	return 0;
 }
 
+static int tegra_channel_s_parm(struct file *file, void *fh,
+                             struct v4l2_streamparm *parm)
+{
+        struct v4l2_fh *vfh = file->private_data;
+        struct tegra_channel *chan = to_tegra_channel(vfh->vdev);
+        struct v4l2_subdev *subdev = chan->subdev_on_csi;
+        int ret = 0;
+
+        ret = v4l2_subdev_call(subdev, video, s_parm, parm);
+        if (ret == -ENOIOCTLCMD)
+                return -ENOTTY;
+
+        return ret;
+}
+static int tegra_channel_g_parm(struct file *file, void *fh,
+                                struct v4l2_streamparm *parm)
+{
+        struct v4l2_fh *vfh = file->private_data;
+        struct tegra_channel *chan = to_tegra_channel(vfh->vdev);
+        struct v4l2_subdev *subdev = chan->subdev_on_csi;
+        int ret = 0;
+
+        ret = v4l2_subdev_call(subdev, video, g_parm, parm);
+        if (ret == -ENOIOCTLCMD)
+                return -ENOTTY;
+
+        return ret;
+}
+
+
+
+
 static int tegra_channel_setup_controls(struct tegra_channel *chan)
 {
 	int num_sd = 0;
@@ -2117,6 +2149,9 @@ static const struct v4l2_ioctl_ops tegra_channel_ioctl_ops = {
 	.vidioc_enum_input		= tegra_channel_enum_input,
 	.vidioc_g_input			= tegra_channel_g_input,
 	.vidioc_s_input			= tegra_channel_s_input,
+	.vidioc_g_parm                  = tegra_channel_g_parm,
+        .vidioc_s_parm                  = tegra_channel_s_parm,
++
 	.vidioc_log_status		= tegra_channel_log_status,
 	.vidioc_default			= tegra_channel_default_ioctl,
 };
