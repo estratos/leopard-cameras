@@ -2151,7 +2151,6 @@ static const struct v4l2_ioctl_ops tegra_channel_ioctl_ops = {
 	.vidioc_s_input			= tegra_channel_s_input,
 	.vidioc_g_parm                  = tegra_channel_g_parm,
         .vidioc_s_parm                  = tegra_channel_s_parm,
-+
 	.vidioc_log_status		= tegra_channel_log_status,
 	.vidioc_default			= tegra_channel_default_ioctl,
 };
