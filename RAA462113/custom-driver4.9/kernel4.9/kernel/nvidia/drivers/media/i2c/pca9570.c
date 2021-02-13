@@ -64,7 +64,7 @@ static int pca9570_write_reg(struct pca9570 *priv,
 static int pca9570_icr_move(struct pca9570 *priv, u32 direction, u32 val)
 {
 	struct i2c_client *i2c_client = priv->i2c_client;
-	int i;
+	
 	int steps = 0;
 	int err = 0;
 	u8 reg = 0;
@@ -91,23 +91,23 @@ static int pca9570_icr_move(struct pca9570 *priv, u32 direction, u32 val)
 	if (direction == PCA9570_FORWARD) {
 		dev_info(&i2c_client->dev, "%s, forward val=%d\n",
 			 __func__, steps);
+		rr |= pca9570_write_reg(priv, 0x6, 0x0);
+		err |= pca9570_write_reg(priv, 0x7, 0x0);
+		err |= pca9570_write_reg(priv, 0x3, 0x8);
+		
 		reg = reg_forward;
 	} else if (direction == PCA9570_REVERSE) {
 		dev_info(&i2c_client->dev, "%s, reverse val=%d\n",
 			 __func__, steps);
+		err |= pca9570_write_reg(priv, 0x6, 0x0);
+ 		err |= pca9570_write_reg(priv, 0x7, 0x0);
+		err |= pca9570_write_reg(priv, 0x3, 0x0)
+				
 		reg = reg_revert;
 	} else
 		return -ENOMEM;
 
-	for (i = 0; i < steps; i++) {
-		usleep_range(1000*100, 1000*110);
-		err |= pca9570_write_reg(priv, IMX185_PCA9570_I2C_ADDR, 0x48);
-		err |= pca9570_write_reg(priv, IMX185_PCA9570_I2C_ADDR, reg);
-		usleep_range(1000*100, 1000*110);
-		err |= pca9570_write_reg(priv, IMX185_PCA9570_I2C_ADDR, 0x48);
-		err |= pca9570_write_reg(priv, IMX185_PCA9570_I2C_ADDR,
-				reg_brake);
-	}
+	
 	if (err)
 		dev_err(&i2c_client->dev, "%s:i2c write failed\n", __func__);
 
