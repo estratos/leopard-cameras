@@ -15,7 +15,9 @@
 
 #include <t18x-common-platforms/tegra186-quill-common-p3310-1000-a00.dtsi>
 #include <t18x-common-platforms/tegra186-quill-power-tree-p3310-1000-a00-00.dtsi>
+//// patched for not include 
 //#include <t18x-common-platforms/tegra186-quill-camera-modules.dtsi>
+/// replaced file to include, check is the same file estructure this may be breaking the compile
 #include "t18x-common-platforms/tegra186-quill-camera-raa462113-a00.dtsi"
 #include <t18x-common-modules/tegra186-display-e3320-1000-a00.dtsi>
 
