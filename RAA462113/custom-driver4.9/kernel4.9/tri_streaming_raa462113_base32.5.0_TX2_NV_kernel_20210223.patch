@@ -1,4 +1,4 @@
-diff -Naur kernel/kernel-4.9/arch/arm64/configs/tegra_defconfig kernel_new/kernel-4.4/arch/arm64/configs/tegra18_defconfig
+diff -Naur kernel/kernel-4.9/arch/arm64/configs/tegra_defconfig kernel_new/kernel-4.9/arch/arm64/configs/tegra18_defconfig
 --- kernel/kernel-4.9/arch/arm64/configs/tegra_defconfig	2018-05-15 17:53:40.000000000 -0700
 +++ kernel_new/kernel-4.9/arch/arm64/configs/tegra_defconfig	2019-03-29 19:51:54.329079730 -0700
 @@ -370,6 +370,7 @@
@@ -21,7 +21,7 @@ diff -Naur kernel/kernel-4.9/drivers/gpio/gpiolib.c kernel_new/kernel-4.9/driver
  	_gpiod_set_raw_value(desc, value);
  }
  EXPORT_SYMBOL_GPL(gpiod_set_raw_value);
-diff -Naur kernel/kernel-4.9/drivers/media/i2c/Kconfig kernel_new/kernel-4.9/drivers/media/i2c/Kconfig
+diff -Naur kernel/nvidia/drivers/media/i2c/Kconfig kernel_new/nvidia/drivers/media/i2c/Kconfig
 --- kernel/nvidia/drivers/media/i2c/Kconfig	2018-05-15 17:53:42.000000000 -0700
 +++ kernel_new/nvidia/drivers/media/i2c/Kconfig	2019-03-29 19:51:54.329079730 -0700
 @@ -584,6 +584,16 @@
@@ -41,7 +41,7 @@ diff -Naur kernel/kernel-4.9/drivers/media/i2c/Kconfig kernel_new/kernel-4.9/dri
  config VIDEO_TC358840
  	tristate "Toshiba TC358840 decoder"
  	depends on VIDEO_V4L2 && I2C && VIDEO_V4L2_SUBDEV_API
-diff -Naur kernel/kernel-4.9/drivers/media/i2c/Makefile kernel_new/kernel-4.9/drivers/media/i2c/Makefile
+diff -Naur kernel/nvidia/drivers/media/i2c/Makefile kernel_new/nvidia/drivers/media/i2c/Makefile
 --- kernel/nvidia/drivers/media/i2c/Makefile	2018-05-15 17:53:42.000000000 -0700
 +++ kernel_new/nvidia/drivers/media/i2c/Makefile	2019-03-29 19:51:54.333062529 -0700
 @@ -90,5 +90,6 @@
@@ -51,7 +51,7 @@ diff -Naur kernel/kernel-4.9/drivers/media/i2c/Makefile kernel_new/kernel-4.9/dr
 +obj-$(CONFIG_VIDEO_RAA462113) += raa462113.o
  obj-$(CONFIG_VIDEO_TC358840)	+= tc358840.o
  obj-$(CONFIG_I2C_IOEXPANDER_PCA9570) += pca9570.o
-diff -Naur kernel/kernel-4.9/drivers/media/i2c/pca9570.c kernel_new/kernel-4.9/drivers/media/i2c/pca9570.c
+diff -Naur kernel/nvidia/drivers/media/i2c/pca9570.c kernel_new/nvidia/drivers/media/i2c/pca9570.c
 --- kernel/nvidia/drivers/media/i2c/pca9570.c	2018-05-15 17:53:42.000000000 -0700
 +++ kernel_new/nvidia/drivers/media/i2c/pca9570.c	2019-03-29 19:51:54.333062529 -0700
 @@ -64,7 +64,6 @@
@@ -91,7 +91,7 @@ diff -Naur kernel/kernel-4.9/drivers/media/i2c/pca9570.c kernel_new/kernel-4.9/d
  	if (err)
  		dev_err(&i2c_client->dev, "%s:i2c write failed\n", __func__);
  
-diff -Naur kernel/kernel-4.9/drivers/media/i2c/raa462113.c kernel_new/kernel-4.9/drivers/media/i2c/raa462113.c
+diff -Naur kernel/nvidia/drivers/media/i2c/raa462113.c kernel_new/nvidia/drivers/media/i2c/raa462113.c
 --- kernel/nvidia/drivers/media/i2c/raa462113.c	1969-12-31 16:00:00.000000000 -0800
 +++ kernel_new/nvidia/drivers/media/i2c/raa462113.c	2019-03-29 19:51:54.333062529 -0700
 @@ -0,0 +1,1283 @@
