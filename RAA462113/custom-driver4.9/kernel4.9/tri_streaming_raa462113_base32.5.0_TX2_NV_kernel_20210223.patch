@@ -1956,9 +1956,9 @@ diff -Naur kernel/nvidia/drivers/media/i2c/raa462113_mode_tbls.h kernel_new/kern
 +	RAA462113_MODE_1920X1080_CROP_30FPS},
 +};
 +#endif /* __RAA462113_I2C_TABLES__ */
-diff -Naur kernel/kernel-4.9/drivers/media/platform/tegra/camera/vi/channel.c kernel_new/kernel-4.9/drivers/media/platform/tegra/camera/vi/channel.c
---- kernel/kernel-4.9/drivers/media/platform/tegra/camera/vi/channel.c	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/kernel-4.9/drivers/media/platform/tegra/camera/vi/channel.c	2019-03-29 19:51:54.337045328 -0700
+diff -Naur kernel/nvidia/drivers/media/platform/tegra/camera/vi/channel.c kernel_new/nvidia/drivers/media/platform/tegra/camera/vi/channel.c
+--- kernel/nvidia/drivers/media/platform/tegra/camera/vi/channel.c	2018-05-15 17:53:42.000000000 -0700
++++ kernel_new/nvidia/drivers/media/platform/tegra/camera/vi/channel.c	2019-03-29 19:51:54.337045328 -0700
 @@ -1476,6 +1476,36 @@
  		chan->grp_id, core, log_status);
  	return 0;
