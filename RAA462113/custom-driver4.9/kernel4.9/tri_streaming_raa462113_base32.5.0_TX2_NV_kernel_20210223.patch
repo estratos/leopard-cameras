@@ -1,4 +1,4 @@
-diff -Naur kernel/kernel-4.9/arch/arm64/configs/tegra18_defconfig kernel_new/kernel-4.4/arch/arm64/configs/tegra18_defconfig
+diff -Naur kernel/kernel-4.9/arch/arm64/configs/tegra_defconfig kernel_new/kernel-4.4/arch/arm64/configs/tegra18_defconfig
 --- kernel/kernel-4.9/arch/arm64/configs/tegra_defconfig	2018-05-15 17:53:40.000000000 -0700
 +++ kernel_new/kernel-4.9/arch/arm64/configs/tegra_defconfig	2019-03-29 19:51:54.329079730 -0700
 @@ -370,6 +370,7 @@
