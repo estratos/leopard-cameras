@@ -1378,9 +1378,9 @@ diff -Naur kernel/kernel-4.9/drivers/media/i2c/raa462113.c kernel_new/kernel-4.9
 +MODULE_DESCRIPTION("Media Controller driver for Sony RAA462113");
 +MODULE_AUTHOR("NVIDIA Corporation");
 +MODULE_LICENSE("GPL v2");
-diff -Naur kernel/kernel-4.9/drivers/media/i2c/raa462113_mode_tbls.h kernel_new/kernel-4.9/drivers/media/i2c/raa462113_mode_tbls.h
---- kernel/kernel-4.9/drivers/media/i2c/raa462113_mode_tbls.h	1969-12-31 16:00:00.000000000 -0800
-+++ kernel_new/kernel-4.9/drivers/media/i2c/raa462113_mode_tbls.h	2019-03-29 19:51:54.333062529 -0700
+diff -Naur kernel/nvidia/drivers/media/i2c/raa462113_mode_tbls.h kernel_new/kernel-4.9/drivers/media/i2c/raa462113_mode_tbls.h
+--- kernel/nvidia/drivers/media/i2c/raa462113_mode_tbls.h	1969-12-31 16:00:00.000000000 -0800
++++ kernel_new/nvidia/drivers/media/i2c/raa462113_mode_tbls.h	2019-03-29 19:51:54.333062529 -0700
 @@ -0,0 +1,574 @@
 +/*
 + * raa462113_mode_tbls.h - raa462113 sensor mode tables
