@@ -92,8 +92,8 @@ diff -Naur kernel/kernel-4.9/drivers/media/i2c/pca9570.c kernel_new/kernel-4.9/d
  		dev_err(&i2c_client->dev, "%s:i2c write failed\n", __func__);
  
 diff -Naur kernel/kernel-4.9/drivers/media/i2c/raa462113.c kernel_new/kernel-4.9/drivers/media/i2c/raa462113.c
---- kernel/kernel-4.9/drivers/media/i2c/raa462113.c	1969-12-31 16:00:00.000000000 -0800
-+++ kernel_new/kernel-4.9/drivers/media/i2c/raa462113.c	2019-03-29 19:51:54.333062529 -0700
+--- kernel/nvidia/drivers/media/i2c/raa462113.c	1969-12-31 16:00:00.000000000 -0800
++++ kernel_new/nvidia/drivers/media/i2c/raa462113.c	2019-03-29 19:51:54.333062529 -0700
 @@ -0,0 +1,1283 @@
 +/*
 + * raa462113.c - raa462113 sensor driver
