@@ -22,8 +22,8 @@ diff -Naur kernel/kernel-4.9/drivers/gpio/gpiolib.c kernel_new/kernel-4.9/driver
  }
  EXPORT_SYMBOL_GPL(gpiod_set_raw_value);
 diff -Naur kernel/kernel-4.9/drivers/media/i2c/Kconfig kernel_new/kernel-4.9/drivers/media/i2c/Kconfig
---- kernel/kernel-4.9/drivers/media/i2c/Kconfig	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/kernel-4.9/drivers/media/i2c/Kconfig	2019-03-29 19:51:54.329079730 -0700
+--- kernel/nvidia/drivers/media/i2c/Kconfig	2018-05-15 17:53:42.000000000 -0700
++++ kernel_new/drivers/drivers/media/i2c/Kconfig	2019-03-29 19:51:54.329079730 -0700
 @@ -584,6 +584,16 @@
  	  To compile this driver as a module, choose M here: the module
  	  will be called imx274.
@@ -42,8 +42,8 @@ diff -Naur kernel/kernel-4.9/drivers/media/i2c/Kconfig kernel_new/kernel-4.9/dri
  	tristate "Toshiba TC358840 decoder"
  	depends on VIDEO_V4L2 && I2C && VIDEO_V4L2_SUBDEV_API
 diff -Naur kernel/kernel-4.9/drivers/media/i2c/Makefile kernel_new/kernel-4.9/drivers/media/i2c/Makefile
---- kernel/kernel-4.9/drivers/media/i2c/Makefile	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/kernel-4.4/drivers/media/i2c/Makefile	2019-03-29 19:51:54.333062529 -0700
+--- kernel/nvidia/drivers/media/i2c/Makefile	2018-05-15 17:53:42.000000000 -0700
++++ kernel_new/nvidia/drivers/media/i2c/Makefile	2019-03-29 19:51:54.333062529 -0700
 @@ -90,5 +90,6 @@
  obj-$(CONFIG_VIDEO_OV5693) += ov5693.o
  obj-$(CONFIG_VIDEO_IMX219) += imx219.o
