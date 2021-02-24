@@ -2008,7 +2008,7 @@ diff -Naur kernel/kernel-4.9/drivers/media/platform/tegra/camera/vi/channel.c ke
  
 diff -Naur kernel/kernel-4.9/drivers/media/v4l2-core/videobuf2-core.c kernel_new/kernel-4.9/drivers/media/v4l2-core/videobuf2-core.c
 --- kernel/kernel-4.9/drivers/media/v4l2-core/videobuf2-core.c	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/kernel-4.4/drivers/media/v4l2-core/videobuf2-core.c	2019-03-29 19:51:54.337045328 -0700
++++ kernel_new/kernel-4.9/drivers/media/v4l2-core/videobuf2-core.c	2019-03-29 19:51:54.337045328 -0700
 @@ -1670,7 +1670,8 @@
  	 * videobuf2-core.h for more information how buffers should be returned
  	 * to vb2 in stop_streaming().
@@ -2019,9 +2019,9 @@ diff -Naur kernel/kernel-4.9/drivers/media/v4l2-core/videobuf2-core.c kernel_new
  		for (i = 0; i < q->num_buffers; ++i)
  			if (q->bufs[i]->state == VB2_BUF_STATE_ACTIVE)
  				vb2_buffer_done(q->bufs[i], VB2_BUF_STATE_ERROR);
-diff -Naur kernel/kernel-4.9/drivers/thermal/pwm_fan.c kernel_new/kernel-4.9/drivers/thermal/pwm_fan.c
---- kernel/kernel-4.9/drivers/thermal/pwm_fan.c	2018-05-15 17:53:45.000000000 -0700
-+++ kernel_new/kernel-4.4/drivers/thermal/pwm_fan.c	2019-03-29 19:51:54.341028127 -0700
+diff -Naur kernel/nvidia/drivers/thermal/pwm_fan.c kernel_new/nvidia/drivers/thermal/pwm_fan.c
+--- kernel/nvidia/drivers/thermal/pwm_fan.c	2018-05-15 17:53:45.000000000 -0700
++++ kernel_new/nvidia/drivers/thermal/pwm_fan.c	2019-03-29 19:51:54.341028127 -0700
 @@ -371,7 +371,7 @@
  	else
  		target_pwm = fan_data->fan_pwm[cur_state];
