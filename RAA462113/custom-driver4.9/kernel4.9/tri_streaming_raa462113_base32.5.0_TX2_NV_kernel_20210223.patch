@@ -23,7 +23,7 @@ diff -Naur kernel/kernel-4.9/drivers/gpio/gpiolib.c kernel_new/kernel-4.9/driver
  EXPORT_SYMBOL_GPL(gpiod_set_raw_value);
 diff -Naur kernel/kernel-4.9/drivers/media/i2c/Kconfig kernel_new/kernel-4.9/drivers/media/i2c/Kconfig
 --- kernel/nvidia/drivers/media/i2c/Kconfig	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/drivers/drivers/media/i2c/Kconfig	2019-03-29 19:51:54.329079730 -0700
++++ kernel_new/nvidia/drivers/media/i2c/Kconfig	2019-03-29 19:51:54.329079730 -0700
 @@ -584,6 +584,16 @@
  	  To compile this driver as a module, choose M here: the module
  	  will be called imx274.
