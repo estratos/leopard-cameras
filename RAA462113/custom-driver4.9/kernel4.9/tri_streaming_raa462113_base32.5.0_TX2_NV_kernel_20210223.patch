@@ -52,8 +52,8 @@ diff -Naur kernel/kernel-4.9/drivers/media/i2c/Makefile kernel_new/kernel-4.9/dr
  obj-$(CONFIG_VIDEO_TC358840)	+= tc358840.o
  obj-$(CONFIG_I2C_IOEXPANDER_PCA9570) += pca9570.o
 diff -Naur kernel/kernel-4.9/drivers/media/i2c/pca9570.c kernel_new/kernel-4.9/drivers/media/i2c/pca9570.c
---- kernel/kernel-4.9/drivers/media/i2c/pca9570.c	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/kernel-4.9/drivers/media/i2c/pca9570.c	2019-03-29 19:51:54.333062529 -0700
+--- kernel/nvidia/drivers/media/i2c/pca9570.c	2018-05-15 17:53:42.000000000 -0700
++++ kernel_new/nvidia/drivers/media/i2c/pca9570.c	2019-03-29 19:51:54.333062529 -0700
 @@ -64,7 +64,6 @@
  static int pca9570_icr_move(struct pca9570 *priv, u32 direction, u32 val)
  {
