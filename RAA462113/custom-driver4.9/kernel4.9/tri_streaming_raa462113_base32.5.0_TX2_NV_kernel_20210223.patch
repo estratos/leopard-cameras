@@ -1,6 +1,6 @@
-diff -Naur kernel/kernel-4.4/arch/arm64/configs/tegra18_defconfig kernel_new/kernel-4.4/arch/arm64/configs/tegra18_defconfig
---- kernel/kernel-4.4/arch/arm64/configs/tegra18_defconfig	2018-05-15 17:53:40.000000000 -0700
-+++ kernel_new/kernel-4.4/arch/arm64/configs/tegra18_defconfig	2019-03-29 19:51:54.329079730 -0700
+diff -Naur kernel/kernel-4.9/arch/arm64/configs/tegra18_defconfig kernel_new/kernel-4.4/arch/arm64/configs/tegra18_defconfig
+--- kernel/kernel-4.9/arch/arm64/configs/tegra18_defconfig	2018-05-15 17:53:40.000000000 -0700
++++ kernel_new/kernel-4.9/arch/arm64/configs/tegra18_defconfig	2019-03-29 19:51:54.329079730 -0700
 @@ -370,6 +370,7 @@
  CONFIG_VIDEO_LC898212=y
  CONFIG_VIDEO_OV5693=y
@@ -9,8 +9,8 @@ diff -Naur kernel/kernel-4.4/arch/arm64/configs/tegra18_defconfig kernel_new/ker
  CONFIG_VIDEO_IMX185=y
  CONFIG_I2C_IOEXPANDER_PCA9570=y
  # CONFIG_VGA_ARB is not set
-diff -Naur kernel/kernel-4.4/drivers/gpio/gpiolib.c kernel_new/kernel-4.4/drivers/gpio/gpiolib.c
---- kernel/kernel-4.4/drivers/gpio/gpiolib.c	2018-05-15 17:53:41.000000000 -0700
+diff -Naur kernel/kernel-4.9/drivers/gpio/gpiolib.c kernel_new/kernel-4.4/drivers/gpio/gpiolib.c
+--- kernel/kernel-4.9/drivers/gpio/gpiolib.c	2018-05-15 17:53:41.000000000 -0700
 +++ kernel_new/kernel-4.4/drivers/gpio/gpiolib.c	2019-03-29 19:51:54.329079730 -0700
 @@ -1610,7 +1610,7 @@
  	if (!desc)
@@ -21,9 +21,9 @@ diff -Naur kernel/kernel-4.4/drivers/gpio/gpiolib.c kernel_new/kernel-4.4/driver
  	_gpiod_set_raw_value(desc, value);
  }
  EXPORT_SYMBOL_GPL(gpiod_set_raw_value);
-diff -Naur kernel/kernel-4.4/drivers/media/i2c/Kconfig kernel_new/kernel-4.4/drivers/media/i2c/Kconfig
---- kernel/kernel-4.4/drivers/media/i2c/Kconfig	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/kernel-4.4/drivers/media/i2c/Kconfig	2019-03-29 19:51:54.329079730 -0700
+diff -Naur kernel/kernel-4.9/drivers/media/i2c/Kconfig kernel_new/kernel-4.4/drivers/media/i2c/Kconfig
+--- kernel/kernel-4.9/drivers/media/i2c/Kconfig	2018-05-15 17:53:42.000000000 -0700
++++ kernel_new/kernel-4.9/drivers/media/i2c/Kconfig	2019-03-29 19:51:54.329079730 -0700
 @@ -584,6 +584,16 @@
  	  To compile this driver as a module, choose M here: the module
  	  will be called imx274.
@@ -41,8 +41,8 @@ diff -Naur kernel/kernel-4.4/drivers/media/i2c/Kconfig kernel_new/kernel-4.4/dri
  config VIDEO_TC358840
  	tristate "Toshiba TC358840 decoder"
  	depends on VIDEO_V4L2 && I2C && VIDEO_V4L2_SUBDEV_API
-diff -Naur kernel/kernel-4.4/drivers/media/i2c/Makefile kernel_new/kernel-4.4/drivers/media/i2c/Makefile
---- kernel/kernel-4.4/drivers/media/i2c/Makefile	2018-05-15 17:53:42.000000000 -0700
+diff -Naur kernel/kernel-4.9/drivers/media/i2c/Makefile kernel_new/kernel-4.4/drivers/media/i2c/Makefile
+--- kernel/kernel-4.9/drivers/media/i2c/Makefile	2018-05-15 17:53:42.000000000 -0700
 +++ kernel_new/kernel-4.4/drivers/media/i2c/Makefile	2019-03-29 19:51:54.333062529 -0700
 @@ -90,5 +90,6 @@
  obj-$(CONFIG_VIDEO_OV5693) += ov5693.o
@@ -51,9 +51,9 @@ diff -Naur kernel/kernel-4.4/drivers/media/i2c/Makefile kernel_new/kernel-4.4/dr
 +obj-$(CONFIG_VIDEO_RAA462113) += raa462113.o
  obj-$(CONFIG_VIDEO_TC358840)	+= tc358840.o
  obj-$(CONFIG_I2C_IOEXPANDER_PCA9570) += pca9570.o
-diff -Naur kernel/kernel-4.4/drivers/media/i2c/pca9570.c kernel_new/kernel-4.4/drivers/media/i2c/pca9570.c
---- kernel/kernel-4.4/drivers/media/i2c/pca9570.c	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/kernel-4.4/drivers/media/i2c/pca9570.c	2019-03-29 19:51:54.333062529 -0700
+diff -Naur kernel/kernel-4.9/drivers/media/i2c/pca9570.c kernel_new/kernel-4.4/drivers/media/i2c/pca9570.c
+--- kernel/kernel-4.9/drivers/media/i2c/pca9570.c	2018-05-15 17:53:42.000000000 -0700
++++ kernel_new/kernel-4.9/drivers/media/i2c/pca9570.c	2019-03-29 19:51:54.333062529 -0700
 @@ -64,7 +64,6 @@
  static int pca9570_icr_move(struct pca9570 *priv, u32 direction, u32 val)
  {
@@ -91,9 +91,9 @@ diff -Naur kernel/kernel-4.4/drivers/media/i2c/pca9570.c kernel_new/kernel-4.4/d
  	if (err)
  		dev_err(&i2c_client->dev, "%s:i2c write failed\n", __func__);
  
-diff -Naur kernel/kernel-4.4/drivers/media/i2c/raa462113.c kernel_new/kernel-4.4/drivers/media/i2c/raa462113.c
---- kernel/kernel-4.4/drivers/media/i2c/raa462113.c	1969-12-31 16:00:00.000000000 -0800
-+++ kernel_new/kernel-4.4/drivers/media/i2c/raa462113.c	2019-03-29 19:51:54.333062529 -0700
+diff -Naur kernel/kernel-4.9/drivers/media/i2c/raa462113.c kernel_new/kernel-4.4/drivers/media/i2c/raa462113.c
+--- kernel/kernel-4.9/drivers/media/i2c/raa462113.c	1969-12-31 16:00:00.000000000 -0800
++++ kernel_new/kernel-4.9/drivers/media/i2c/raa462113.c	2019-03-29 19:51:54.333062529 -0700
 @@ -0,0 +1,1283 @@
 +/*
 + * raa462113.c - raa462113 sensor driver
@@ -1378,9 +1378,9 @@ diff -Naur kernel/kernel-4.4/drivers/media/i2c/raa462113.c kernel_new/kernel-4.4
 +MODULE_DESCRIPTION("Media Controller driver for Sony RAA462113");
 +MODULE_AUTHOR("NVIDIA Corporation");
 +MODULE_LICENSE("GPL v2");
-diff -Naur kernel/kernel-4.4/drivers/media/i2c/raa462113_mode_tbls.h kernel_new/kernel-4.4/drivers/media/i2c/raa462113_mode_tbls.h
---- kernel/kernel-4.4/drivers/media/i2c/raa462113_mode_tbls.h	1969-12-31 16:00:00.000000000 -0800
-+++ kernel_new/kernel-4.4/drivers/media/i2c/raa462113_mode_tbls.h	2019-03-29 19:51:54.333062529 -0700
+diff -Naur kernel/kernel-4.9/drivers/media/i2c/raa462113_mode_tbls.h kernel_new/kernel-4.4/drivers/media/i2c/raa462113_mode_tbls.h
+--- kernel/kernel-4.9/drivers/media/i2c/raa462113_mode_tbls.h	1969-12-31 16:00:00.000000000 -0800
++++ kernel_new/kernel-4.9/drivers/media/i2c/raa462113_mode_tbls.h	2019-03-29 19:51:54.333062529 -0700
 @@ -0,0 +1,574 @@
 +/*
 + * raa462113_mode_tbls.h - raa462113 sensor mode tables
@@ -1956,9 +1956,9 @@ diff -Naur kernel/kernel-4.4/drivers/media/i2c/raa462113_mode_tbls.h kernel_new/
 +	RAA462113_MODE_1920X1080_CROP_30FPS},
 +};
 +#endif /* __RAA462113_I2C_TABLES__ */
-diff -Naur kernel/kernel-4.4/drivers/media/platform/tegra/camera/vi/channel.c kernel_new/kernel-4.4/drivers/media/platform/tegra/camera/vi/channel.c
---- kernel/kernel-4.4/drivers/media/platform/tegra/camera/vi/channel.c	2018-05-15 17:53:42.000000000 -0700
-+++ kernel_new/kernel-4.4/drivers/media/platform/tegra/camera/vi/channel.c	2019-03-29 19:51:54.337045328 -0700
+diff -Naur kernel/kernel-4.9/drivers/media/platform/tegra/camera/vi/channel.c kernel_new/kernel-4.4/drivers/media/platform/tegra/camera/vi/channel.c
+--- kernel/kernel-4.9/drivers/media/platform/tegra/camera/vi/channel.c	2018-05-15 17:53:42.000000000 -0700
++++ kernel_new/kernel-4.9/drivers/media/platform/tegra/camera/vi/channel.c	2019-03-29 19:51:54.337045328 -0700
 @@ -1476,6 +1476,36 @@
  		chan->grp_id, core, log_status);
  	return 0;
@@ -2006,8 +2006,8 @@ diff -Naur kernel/kernel-4.4/drivers/media/platform/tegra/camera/vi/channel.c ke
  	.vidioc_log_status		= tegra_channel_log_status,
  };
  
-diff -Naur kernel/kernel-4.4/drivers/media/v4l2-core/videobuf2-core.c kernel_new/kernel-4.4/drivers/media/v4l2-core/videobuf2-core.c
---- kernel/kernel-4.4/drivers/media/v4l2-core/videobuf2-core.c	2018-05-15 17:53:42.000000000 -0700
+diff -Naur kernel/kernel-4.9/drivers/media/v4l2-core/videobuf2-core.c kernel_new/kernel-4.4/drivers/media/v4l2-core/videobuf2-core.c
+--- kernel/kernel-4.9/drivers/media/v4l2-core/videobuf2-core.c	2018-05-15 17:53:42.000000000 -0700
 +++ kernel_new/kernel-4.4/drivers/media/v4l2-core/videobuf2-core.c	2019-03-29 19:51:54.337045328 -0700
 @@ -1670,7 +1670,8 @@
  	 * videobuf2-core.h for more information how buffers should be returned
@@ -2019,8 +2019,8 @@ diff -Naur kernel/kernel-4.4/drivers/media/v4l2-core/videobuf2-core.c kernel_new
  		for (i = 0; i < q->num_buffers; ++i)
  			if (q->bufs[i]->state == VB2_BUF_STATE_ACTIVE)
  				vb2_buffer_done(q->bufs[i], VB2_BUF_STATE_ERROR);
-diff -Naur kernel/kernel-4.4/drivers/thermal/pwm_fan.c kernel_new/kernel-4.4/drivers/thermal/pwm_fan.c
---- kernel/kernel-4.4/drivers/thermal/pwm_fan.c	2018-05-15 17:53:45.000000000 -0700
+diff -Naur kernel/kernel-4.9/drivers/thermal/pwm_fan.c kernel_new/kernel-4.4/drivers/thermal/pwm_fan.c
+--- kernel/kernel-4.9/drivers/thermal/pwm_fan.c	2018-05-15 17:53:45.000000000 -0700
 +++ kernel_new/kernel-4.4/drivers/thermal/pwm_fan.c	2019-03-29 19:51:54.341028127 -0700
 @@ -371,7 +371,7 @@
  	else
