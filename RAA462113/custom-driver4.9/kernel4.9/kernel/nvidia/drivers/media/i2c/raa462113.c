@@ -433,7 +433,7 @@ static int raa462113_s_stream(struct v4l2_subdev *sd, int enable)
 	struct i2c_client *client = v4l2_get_subdevdata(sd);
 	struct camera_common_data *s_data = to_camera_common_data(&client->dev);
 	struct raa462113 *priv = (struct raa462113 *)s_data->priv;
-	struct v4l2_ext_controls ctrls;
+	struct v4l2_ext_controls ctrls;        /// restore when debug
 	struct v4l2_ext_control control[3];
 	int err;
 
@@ -457,7 +457,20 @@ static int raa462113_s_stream(struct v4l2_subdev *sd, int enable)
 		/* write list of override regs for the asking gain, */
 		/* frame rate and exposure time    */
 		memset(&ctrls, 0, sizeof(ctrls));
-		ctrls.ctrl_class = V4L2_CTRL_ID2CLASS(TEGRA_CAMERA_CID_GAIN);
+                
+		//ctrls.ctrl_class = V4L2_CTRL_ID2CLASS(TEGRA_CAMERA_CID_GAIN);
+                //// 
+               //// failing to compile ////
+               //// error: ‘struct v4l2_ext_controls’ no tiene un miembro llamado ‘ctrl_class’
+               ///  ctrls.ctrl_class = V4L2_CTRL_ID2CLASS(TEGRA_CAMERA_CID_GAIN 
+               ////    ¿quiso decir ‘V4L2_CTRL_ID_MASK’?
+               ////    V4L2_CTRL_ID_MASK
+               //// changed and compile again
+
+               // ctrls.ctrl_class = V4L2_CTRL_ID_MASK(TEGRA_CAMERA_CID_GAIN);
+
+               /// failed again, location of struct definition?
+
 		ctrls.count = 3;
 		ctrls.controls = control;
 
@@ -487,7 +500,7 @@ static int raa462113_s_stream(struct v4l2_subdev *sd, int enable)
 		} else {
 			dev_err(&client->dev, "%s: faile to get overrides\n",
 				__func__);
-		}
+		 }
 	}
 #endif
 
@@ -504,8 +517,7 @@ exit:
 
 static u16 val_read = 0;
 
-static int
-raa462113_s_parm(struct v4l2_subdev *sd, struct v4l2_streamparm *a)
+static int raa462113_s_parm(struct v4l2_subdev *sd, struct v4l2_streamparm *a)
 {
         struct i2c_client *client = v4l2_get_subdevdata(sd);
     //    struct camera_common_data *s_data = to_camera_common_data(client);
@@ -537,14 +549,15 @@ raa462113_s_parm(struct v4l2_subdev *sd, struct v4l2_streamparm *a)
 	return 0;
 }
 
-static int
-raa462113_g_parm(struct v4l2_subdev *sd, struct v4l2_streamparm *a)
+static int raa462113_g_parm(struct v4l2_subdev *sd, struct v4l2_streamparm *a)
 {
-    //    struct i2c_client *client = v4l2_get_subdevdata(sd);
-    //    struct camera_common_data *s_data = to_camera_common_data(client);
-//        struct camera_common_data *s_data = to_camera_common_data(&client->dev);
-  //      struct raa462113 *priv = (struct raa462113 *)s_data->priv;
-
+        //struct i2c_client *client = v4l2_get_subdevdata(sd);
+        //struct camera_common_data *s_data = to_camera_common_data(client);
+        //struct camera_common_data *s_data = to_camera_common_data(&client->dev);
+        //struct raa462113 *priv = (struct raa462113 *)s_data->priv;
+        //if (priv == NULL)
+        //        {
+        //                  }
         if (a == NULL)
                 return -EINVAL;
         if (a->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
