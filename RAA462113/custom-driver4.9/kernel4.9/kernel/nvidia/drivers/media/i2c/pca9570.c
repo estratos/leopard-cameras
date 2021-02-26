@@ -101,7 +101,7 @@ static int pca9570_icr_move(struct pca9570 *priv, u32 direction, u32 val)
 			 __func__, steps);
 		err |= pca9570_write_reg(priv, 0x6, 0x0);
  		err |= pca9570_write_reg(priv, 0x7, 0x0);
-		err |= pca9570_write_reg(priv, 0x3, 0x0)
+		err |= pca9570_write_reg(priv, 0x3, 0x0);
 				
 		reg = reg_revert;
 	} else
