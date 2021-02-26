@@ -459,18 +459,7 @@ static int raa462113_s_stream(struct v4l2_subdev *sd, int enable)
 		memset(&ctrls, 0, sizeof(ctrls));
                 
 		//ctrls.ctrl_class = V4L2_CTRL_ID2CLASS(TEGRA_CAMERA_CID_GAIN);
-                //// 
-               //// failing to compile ////
-               //// error: ‘struct v4l2_ext_controls’ no tiene un miembro llamado ‘ctrl_class’
-               ///  ctrls.ctrl_class = V4L2_CTRL_ID2CLASS(TEGRA_CAMERA_CID_GAIN 
-               ////    ¿quiso decir ‘V4L2_CTRL_ID_MASK’?
-               ////    V4L2_CTRL_ID_MASK
-               //// changed and compile again
-
-               // ctrls.ctrl_class = V4L2_CTRL_ID_MASK(TEGRA_CAMERA_CID_GAIN);
-
-               /// failed again, location of struct definition?
-
+               
 		ctrls.count = 3;
 		ctrls.controls = control;
 
@@ -520,11 +509,13 @@ static u16 val_read = 0;
 static int raa462113_s_parm(struct v4l2_subdev *sd, struct v4l2_streamparm *a)
 {
         struct i2c_client *client = v4l2_get_subdevdata(sd);
-    //    struct camera_common_data *s_data = to_camera_common_data(client);
+        //struct camera_common_data *s_data = to_camera_common_data(client);
 	struct camera_common_data *s_data = to_camera_common_data(&client->dev);
         struct raa462113 *priv = (struct raa462113 *)s_data->priv;
 	u16 addr = 0;
 	u16 value = 0;
+        if (priv == NULL) {
+                          }
 
         if (a == NULL)
                 return -EINVAL;
@@ -551,13 +542,12 @@ static int raa462113_s_parm(struct v4l2_subdev *sd, struct v4l2_streamparm *a)
 
 static int raa462113_g_parm(struct v4l2_subdev *sd, struct v4l2_streamparm *a)
 {
-        //struct i2c_client *client = v4l2_get_subdevdata(sd);
+         struct i2c_client *client = v4l2_get_subdevdata(sd);
         //struct camera_common_data *s_data = to_camera_common_data(client);
-        //struct camera_common_data *s_data = to_camera_common_data(&client->dev);
-        //struct raa462113 *priv = (struct raa462113 *)s_data->priv;
-        //if (priv == NULL)
-        //        {
-        //                  }
+        struct camera_common_data *s_data = to_camera_common_data(&client->dev);
+        struct raa462113 *priv = (struct raa462113 *)s_data->priv;
+        if (priv == NULL) {
+                          }
         if (a == NULL)
                 return -EINVAL;
         if (a->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
@@ -680,7 +670,7 @@ static struct camera_common_sensor_ops raa462113_common_ops = {
 
 /*
  * im185_set_group_hold - Function to hold the sensor register
- * @priv: Pinter to raa462113 structure
+ * @priv: Pointer to raa462113 structure
  *
  * This is used to hold the raa462113 sensor register
  *

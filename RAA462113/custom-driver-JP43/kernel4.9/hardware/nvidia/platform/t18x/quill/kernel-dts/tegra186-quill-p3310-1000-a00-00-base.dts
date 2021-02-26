@@ -15,10 +15,7 @@
 
 #include <t18x-common-platforms/tegra186-quill-common-p3310-1000-a00.dtsi>
 #include <t18x-common-platforms/tegra186-quill-power-tree-p3310-1000-a00-00.dtsi>
-//// revert patched for not include 
 #include <t18x-common-platforms/tegra186-quill-camera-modules.dtsi>
-/// revert - replaced file to include, check is the same file estructure this may be breaking the compile
-// #include "t18x-common-platforms/tegra186-quill-camera-raa462113-a00.dtsi"
 #include <t18x-common-modules/tegra186-display-e3320-1000-a00.dtsi>
 
 /* comms dtsi file should be included after gpio dtsi file */
@@ -288,14 +285,6 @@
 		clock-frequency = <400000>;
 	};
 
-	cpufreq@e070000 {
-		cpu_emc_map =
-			< 499200  204000>,
-			< 652800  408000>,
-			<1420800  665600>,
-			<1920000 1866000>;
-	};
-
 	cpus {
 		status = "disabled";
 	};
@@ -343,10 +332,6 @@
 
 	tegra_udrm: tegra_udrm {
 		compatible = "nvidia,tegra-udrm";
-	};
-
-	soctherm-oc-event {
-		status = "okay";
 	};
 };
 
