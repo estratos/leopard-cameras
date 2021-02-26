@@ -91,7 +91,7 @@ static int pca9570_icr_move(struct pca9570 *priv, u32 direction, u32 val)
 	if (direction == PCA9570_FORWARD) {
 		dev_info(&i2c_client->dev, "%s, forward val=%d\n",
 			 __func__, steps);
-		rr |= pca9570_write_reg(priv, 0x6, 0x0);
+		err |= pca9570_write_reg(priv, 0x6, 0x0);
 		err |= pca9570_write_reg(priv, 0x7, 0x0);
 		err |= pca9570_write_reg(priv, 0x3, 0x8);
 		
