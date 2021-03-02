@@ -139,7 +139,9 @@
 	i2c@3180000 {
                 /* verified ic2 mux part number and device is present at adress 70 r2, this is leopard Li-JTXi-MIPI-ADP */
 		tca9546@70 {
+		status = "okay";
 			i2c@0 {
+			status = "okay";
 			raa462113_a@36 {
 				compatible = "nvidia,raa462113";
 
